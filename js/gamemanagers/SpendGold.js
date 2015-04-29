@@ -113,15 +113,15 @@ game.SpendGold = Object.extend({
     checkCost: function(skill){
         if(skill===1 && (game.data.gold >= ((game.data.skill1+1)*10))){
             return true;
-        }else if(skill===2 && (game.data.gold >= ((game.data.skill1+2)*10))){
+        }else if(skill===2 && (game.data.gold >= ((game.data.skill1+1)*10))){
             return true;
-        }else if(skill===3 && (game.data.gold >= ((game.data.skill1+3)*10))){
+        }else if(skill===3 && (game.data.gold >= ((game.data.skill1+1)*10))){
             return true;
-        }else if(skill===4 && (game.data.gold >= ((game.data.ability1+4)*10))){
+        }else if(skill===4 && (game.data.gold >= ((game.data.ability1+1)*10))){
             return true;
-        }else if(skill===5 && (game.data.gold >= ((game.data.ability2+5)*10))){
+        }else if(skill===5 && (game.data.gold >= ((game.data.ability2+1)*10))){
             return true;
-        }else if(skill===6 && (game.data.gold >= ((game.data.ability3+6)*10))){
+        }else if(skill===6 && (game.data.gold >= ((game.data.ability3+1)*10))){
             return true;
         }
         else{
