@@ -1,5 +1,6 @@
 game.SpendGold = Object.extend({
     init: function(x, y, settings){
+       // Code that controls what happens using variables
        this.now = new Date().getTime();
        this.lastBuy = new Date().getTime();
        this.paused = false;
@@ -8,6 +9,7 @@ game.SpendGold = Object.extend({
        this.buying = false;
     },
     
+    // updates the game when i buy something
     update: function(){
       this.now = new Date().getTime();
       
@@ -25,6 +27,7 @@ game.SpendGold = Object.extend({
       return true;  
     },
     
+    // Code that controls what key to ppress and what it does
     startBuying: function(){
         this.buying = true;       
         game.data.pausePos = me.game.viewport.localToWorld(0, 0);

@@ -1,4 +1,5 @@
 game.EnemyCreep = me.Entity.extend({
+// Code that shows what image i wantt for the enemy creep and what size i want it
     init: function(x, y, settings) {
         this._super(me.Entity, 'init', [x, y, {
                 image: "creep1",
@@ -10,6 +11,7 @@ game.EnemyCreep = me.Entity.extend({
                     return (new me.Rect(0, 0, 32, 64)).toPolygon();
                 }
             }]);
+        //this.health is a global variable where i can access the creeps health from game.js
         this.health = game.data.enemyCreepHealth;
         this.alwaysUpdate = true;
         //this.attacking lets us know if the enemy is currently attacking
@@ -22,13 +24,18 @@ game.EnemyCreep = me.Entity.extend({
         this.body.setVelocity(3, 20);
         this.type = "EnemyCreep";
 
+// Animation of how the creep walks 
         this.renderable.addAnimation("walk", [3, 4, 5], 80);
         this.renderable.setCurrentAnimation("walk");
 
     },
+    
+// Function that controls the helth of the creep
     loseHealth: function(damage) {
         this.health = this.health - damage;
     },
+// Function that updates the game like when i kill the creep and when the health
+// gets to 0 it removes the creep from the game
     update: function(delta) {
         if (this.health <= 0) {
             me.game.world.removeChild(this);
@@ -49,6 +56,7 @@ game.EnemyCreep = me.Entity.extend({
 
         return true;
     },
+// Tells the creep what to do if it collides with the player or playerbase
     collideHandler: function(response) {
 
         if (response.b.type === "PlayerBase") {
